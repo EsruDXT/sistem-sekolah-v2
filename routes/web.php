@@ -23,21 +23,28 @@ Route::get('/', function () {
 // Manajemen Siswa
 Route::name('students.')->prefix('/students')->group(function () {
     
+    // 1. Static main index
     Route::get('/', [StudentController::class, 'index'])->name('index');
 
-    Route::get('/{id}', [StudentController::class, 'show'])->name('show');
-
+    // 2. Static creation form
     Route::get('/create', [StudentController::class, 'create'])->name('create');
 
+    // 3. POST submission for creating
     Route::post('/', [StudentController::class, 'store'])->name('store');
 
+    // 4. Multi-segment wildcards (MUST go above plain /{id})
     Route::get('/{id}/edit', [StudentController::class, 'edit'])->name('edit');
 
-    Route::put('/{id}', [StudentController::class, 'update'])->name('update');
+    // 5. Plain single wildcards (MUST go last)
+    Route::get('/{id}', [StudentController::class, 'show'])->name('show');
 
+    // 6. Action methods
+    Route::put('/{id}', [StudentController::class, 'update'])->name('update');
     Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
     
 });
+
+
 
 Route::name('teachers.')->prefix('/teachers')->group(function () {
     

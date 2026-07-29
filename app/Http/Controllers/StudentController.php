@@ -8,27 +8,27 @@ class StudentController extends Controller
 {
     public function index()
     {
-        return "Ini adalah halaman daftar siswa";
-    }
-
-    public function show(string $id)
-    {
-        return "Ini adalah halaman detail siswa dengan ID: " . $id;
+        return view('students.index',);
     }
 
     public function create()
     {
-        return "Ini adalah halaman untuk menambahkan siswa baru";
+        return view('students.create',);
     }
 
-    public function store(Request $request, string $id)
+    public function show(string $id)
+    {
+        return view('students.show',);
+    }
+
+    public function store(Request $request)
     {
         return "Menyimpan data siswa baru";
     }
 
     public function edit(string $id)
     {
-        return "Ini adalah halaman untuk mengedit siswa dengan ID: " . $id;
+        return view('students.edit',);
     }
 
     public function update(Request $request, string $id)
@@ -41,4 +41,3 @@ class StudentController extends Controller
         return "Menghapus siswa dengan ID: " . $id;
     }
 }
-
