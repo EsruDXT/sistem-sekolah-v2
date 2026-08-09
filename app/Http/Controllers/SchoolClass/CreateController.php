@@ -10,8 +10,26 @@ class CreateController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request, string $id)
+    public function __invoke(Request $request)
     {
-        return "Ini adalah halaman untuk menambahkan kelas baru";
+        $title = "Sistem Sekolah - Tambah Kelas";
+
+        $majors = [
+            ['id' => 1, 'code' => 'AKL', 'name' => 'Akuntansi dan Keuangan Lembaga'],
+            ['id' => 2, 'code' => 'TKJ', 'name' => 'Teknik Komputer dan Jaringan'],
+            ['id' => 3, 'code' => 'BD',  'name' => 'Bisnis Digital'],
+        ];
+
+        $teachers = [
+            ['id' => 1, 'name' => 'Budi Santoso'],
+            ['id' => 2, 'name' => 'Siti Aminah'],
+            ['id' => 3, 'name' => 'Ahmad Dahlan'],
+        ];
+
+        return view('classes.create', [
+            'title' => $title,
+            'majors' => $majors,   
+            'teachers' => $teachers, 
+        ]);
     }
 }

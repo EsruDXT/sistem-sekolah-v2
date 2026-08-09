@@ -12,6 +12,16 @@ class ShowController extends Controller
      */
     public function __invoke(Request $request, string $id)
     {
-        return "Ini adalah halaman untuk menampilkan detail kelas dengan ID: " . $id;
+        return view('classes.show', [
+            'title' => 'Sistem Sekolah - Detail Kelas',
+            'description' => 'Menampilkan detail data kelas yang terdaftar',
+            'class' => [
+                'id' => $id,
+                'name' => 'XII AKL 1',
+                'grade' => 'XII',
+                'major' => 'AKL',
+                'homeroom_teacher' => 'Budi Santoso'
+            ]
+        ]);
     }
 }
