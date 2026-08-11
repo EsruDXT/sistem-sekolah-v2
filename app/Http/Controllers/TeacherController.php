@@ -60,12 +60,19 @@ class TeacherController extends Controller
     {
     $teacher = [
         'id' => $id,
+
         'nip' => '198501012024',
-        'name' => 'Budi Ariyanto',
-        'gender' => 'L',
-        'subject' => 'Pemrograman Web',
-        'phone_number' => '08123456789',
+
+        'name' => 'Budi Santoso',
+
+        'gender' => 'Laki-Laki',
+
+        'subject' => 'Akuntansi Dasar',
+
+        'phone_number' => '081234560002',
+
         'status' => 'Aktif',
+
     ];
 
     $title = "Detail Data Guru";
@@ -89,10 +96,10 @@ class TeacherController extends Controller
     $teacher = [
         'id' => $id,
         'nip' => '198501012024',
-        'name' => 'Budi Ariyanto',
-        'gender' => 'L',
-        'subject' => 'Pemrograman Web',
-        'phone_number' => '08123456789',
+        'name' => 'Budi Santoso',
+        'gender' => 'Laki-Laki',
+        'subject' => 'Akuntansi Dasar',
+        'phone_number' => '081234560002',
         'status' => 'Aktif',
     ];
 
