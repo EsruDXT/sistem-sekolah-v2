@@ -22,7 +22,7 @@
 
             </div>
 
-            <a href="{{ route('majors.edit', ['id' => 1]) }}"
+            <a href="{{ route('majors.edit', ['major' => 1]) }}"
                 class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Ubah</a>
 
         </div>
@@ -63,7 +63,7 @@
 
             <a href="{{ route('majors.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
 
-            <form action="" method="POST" onsubmit="return confirm('Hapus data jurusan ini?')">
+            <form action="{{ route('majors.destroy', ['major' => 1]) }}" method="POST" onsubmit="return confirm('Hapus data jurusan ini?')">
 
                 @csrf
 

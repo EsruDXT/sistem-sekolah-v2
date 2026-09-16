@@ -80,21 +80,7 @@ Route::name('classes.')->prefix('/classes')->group(function () {
     Route::delete('/{id}', DestroyController::class)->name('destroy');
 });
 
+Route::resource('majors', MajorController::class);
 
-Route::name('majors.')->prefix('/majors')->group(function () {
-    
-    Route::get('/', [MajorController::class, 'index'])->name('index');
 
-    Route::get('/create', [MajorController::class, 'create'])->name('create');
-
-    Route::post('/', [MajorController::class, 'store'])->name('store');
-
-    Route::get('/{id}', [MajorController::class, 'show'])->name('show');
-
-    Route::get('/{id}/edit', [MajorController::class, 'edit'])->name('edit');
-
-    Route::put('/{id}', [MajorController::class, 'update'])->name('update');
-
-    Route::delete('/{id}', [MajorController::class, 'destroy'])->name('destroy');
-});
 

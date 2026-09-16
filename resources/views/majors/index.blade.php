@@ -74,11 +74,11 @@
 
                         <div class="flex justify-end gap-4 text-xs font-medium">
 
-                            <a href="{{ route('majors.show', ['id' => $major['id']]) }}" class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
+                            <a href="{{ route('majors.show', ['major' => $major['id']]) }}" class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
 
-                            <a href="{{ route('majors.edit', ['id' => $major['id']]) }}" class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
+                            <a href="{{ route('majors.edit', ['major' => $major['id']]) }}" class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
 
-                            <form action="" method="POST"
+                            <form action="{{ route('majors.destroy', ['major' => $major['id']]) }}" method="POST"
                                 onsubmit="return confirm('Hapus data Jurusan ini dari buku induk?')">
 
                                 @csrf

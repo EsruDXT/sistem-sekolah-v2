@@ -17,7 +17,7 @@
 
 
 
-    <form action="" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
+    <form action="{{ route('majors.store') }}" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
 
 
 
