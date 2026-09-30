@@ -33,14 +33,14 @@ Route::name('students.')->prefix('/students')->group(function () {
     Route::post('/', [StudentController::class, 'store'])->name('store');
 
     // 4. Multi-segment wildcards (MUST go above plain /{id})
-    Route::get('/{id}/edit', [StudentController::class, 'edit'])->name('edit');
+    Route::get('/{student}/edit', [StudentController::class, 'edit'])->name('edit');
 
     // 5. Plain single wildcards (MUST go last)
-    Route::get('/{id}', [StudentController::class, 'show'])->name('show');
+    Route::get('/{student}', [StudentController::class, 'show'])->name('show');
 
     // 6. Action methods
-    Route::put('/{id}', [StudentController::class, 'update'])->name('update');
-    Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
+    Route::put('/{student}', [StudentController::class, 'update'])->name('update');
+    Route::delete('/{student}', [StudentController::class, 'destroy'])->name('destroy');
     
 });
 
