@@ -28,6 +28,14 @@
 
             </nav>
 
+            <form action="{{ route('logout') }}" method="POST" class="hidden md:block">
+
+                @csrf
+
+                <button type="submit" class="text-sm text-white/55 hover:text-white">Logout</button>
+
+            </form>
+
         </div>
 
         <div class="h-0.5 bg-[#A16207]"></div>
