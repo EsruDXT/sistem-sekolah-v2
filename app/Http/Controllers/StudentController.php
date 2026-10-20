@@ -9,9 +9,13 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $title = "Sistem Sekolah - Daftar Siswa";
+        $search = $request->query('search');
+        $class = $request->query('class');
+        $major = $request->query('major');
+
         $student = Student::select([
             'id',
             'nis',
@@ -19,11 +23,25 @@ class StudentController extends Controller
             'class',
             'major'
         ])
-        ->get();
+        ->when($search, function ($query, $search) {
+            $query->where(function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('nis', 'like', "%{$search}%");
+            });
+        })
+        ->when($class, fn ($query, $class) => $query->where('class', '=', $class))
+        ->when($major, fn ($query, $major) => $query->where('major', '=', $major))
+        ->paginate(10)
+        ->withQueryString();
 
+
+        $schoolClasses = ['10 AKL', '10 BiD', '10 TKJ', '11 AKL', '11 BiD', '11 TKJ', '12 AKL', '12 BiD', '12 TKJ'];
+        $majors = ['AKL', 'BiD', 'TKJ'];
         return view ('students.index', [
             'title' => $title,
-            'students' => $student
+            'students' => $student,
+            'schoolClasses' => $schoolClasses,
+            'majors' => $majors
         ]);
     }
 
